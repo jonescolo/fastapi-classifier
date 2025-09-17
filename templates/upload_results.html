@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excel Upload Results</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h2>Excel File Analysis</h2>
+    <p><strong>Shape:</strong> {{ shape[0] }} rows × {{ shape[1] }} columns</p>
+    <table>
+        <tr>
+            <th>Column Name</th>
+            <th>Data Type</th>
+            <th>Classification</th>
+        </tr>
+        {% for col, info in column_details.items() %}
+        <tr>
+            <td>{{ col }}</td>
+            <td>{{ info.dtype }}</td>
+            <td>{{ info.classification }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
